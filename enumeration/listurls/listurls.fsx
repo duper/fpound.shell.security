@@ -23,9 +23,9 @@ let fetchAsync(name, url:string) =
             let webClient = new WebClient()
             let! html = webClient.AsyncDownloadString(uri)
             let! links = extractLinksAsync html
-            printf "%s : %d" url links.Count
+            printf "Finished, Total links: %s : %d" url links.Count
 
-        with | ex -> printfn "Finished, Total links: %s" (ex.Message)
+        with | ex -> printfn "%s" (ex.Message)
     }
 
 
